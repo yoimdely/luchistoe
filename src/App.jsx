@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-/* ================= SEO + ФОНТЫ ================= */
+/* ================= SEO + ФОНТЫ ================ */
 function injectSEO() {
   if (typeof document === "undefined") return;
 
