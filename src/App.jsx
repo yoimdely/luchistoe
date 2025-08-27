@@ -15,7 +15,7 @@ function injectSEO() {
   document.title = "ЖК «Лучистое» — Алушта, пос. Семидворье, Пограничный 6";
 
   const meta = [
-    { name: "description", content: "ЖК «Лучистое» (Алушта, Семидворье): квартиры у моря с курортной инфраструктурой — открытый и крытый бассейны, SPA, ресторан, йога и спорт-зоны, верёвочный парк, детсад. Поэтапный ввод до III кв. 2027. 214‑ФЗ, эскроу." },
+    { name: "description", content: "ЖК «Лучистое» (Алушта, Семидворье): квартиры у моря с курортной инфраструктурой — открытый и крытый бассейны, SPA, ресторан, йога и спорт-зоны, верёвочный парк, детсад. Поэтапный ввод до III кв. 2027. 214-ФЗ, эскроу." },
     { property: "og:title", content: "ЖК «Лучистое» — курортный комплекс у моря, Алушта" },
     { property: "og:description", content: "~250 м по прямой до моря (пешком ~800 м), до 17 этажей, паркинги, террасы, семейные и видовые планировки." },
     { property: "og:type", content: "website" },
@@ -63,7 +63,9 @@ function injectFonts() {
   ];
   links.forEach(cfg => {
     const l = document.createElement("link");
-    Object.entries(cfg).forEach(([k, v]) => v !== undefined && l.setAttribute(k, v as string));
+    Object.entries(cfg).forEach(([k, v]) => {
+      if (v !== undefined) l.setAttribute(k, String(v));
+    });
     document.head.appendChild(l);
   });
 }
@@ -248,7 +250,7 @@ export default function App() {
               «Лучистое» — квартиры у моря в Семидворье (Алушта)
             </h1>
             <p className="mt-5 text-base md:text-lg" style={{ color: "#355E57", maxWidth: 640 }}>
-              Курортный жилой комплекс на южном берегу Крыма: жилой фонд и собственная инфраструктура — открытый и крытый бассейны, SPA‑центр, ресторан, спорт‑ и детские зоны. По прямой до моря ~250 м, пешком ~800 м.
+              Курортный жилой комплекс на южном берегу Крыма: жилой фонд и собственная инфраструктура — открытый и крытый бассейны, SPA-центр, ресторан, спорт- и детские зоны. По прямой до моря ~250 м, пешком ~800 м.
             </p>
 
             <ul className="mt-6 grid grid-cols-2 gap-3 text-sm">
@@ -282,8 +284,8 @@ export default function App() {
       <section id="benefits" className="py-10">
         <div className="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 md:grid-cols-4 gap-5 items-stretch">
           <div className="h-full"><Stat value="~250 м" label="До моря (по прямой)" sub="пешком ~800 м" icon={<Waves size={18} />} /></div>
-          <div className="h-full"><Stat value="до 17" label="Этажей" sub="монолит‑кирпич" icon={<Building2 size={18} />} /></div>
-          <div className="h-full"><Stat value="Комфорт" label="Класс" sub="214‑ФЗ, эскроу" icon={<ShieldCheck size={18} />} /></div>
+          <div className="h-full"><Stat value="до 17" label="Этажей" sub="монолит-кирпич" icon={<Building2 size={18} />} /></div>
+          <div className="h-full"><Stat value="Комфорт" label="Класс" sub="214-ФЗ, эскроу" icon={<ShieldCheck size={18} />} /></div>
           <div className="h-full"><Stat value="SPA + бассейны" label="Инфраструктура" sub="ресторан, спорт, детзоны" icon={<Store size={18} />} /></div>
         </div>
       </section>
@@ -294,14 +296,14 @@ export default function App() {
           <div className="md:col-span-2">
             <h2 className="text-2xl md:text-3xl font-bold" style={{ fontFamily: 'Prata, serif' }}>О проекте</h2>
             <p className="mt-4" style={{ color: '#355E57' }}>
-              «Лучистое» — курортный жилой комплекс на южном берегу Крыма, в посёлке Семидворье. Проект сочетает квартиры для жизни и отдыха с полноценной курортной инфраструктурой на территории. Продажи ведутся по ДДУ (214‑ФЗ) с расчётами через эскроу‑счета.
+              «Лучистое» — курортный жилой комплекс на южном берегу Крыма, в посёлке Семидворье. Проект сочетает квартиры для жизни и отдыха с полноценной курортной инфраструктурой на территории. Продажи ведутся по ДДУ (214-ФЗ) с расчётами через эскроу-счета.
             </p>
             <div className="mt-6 grid sm:grid-cols-2 gap-4">
               {[
                 { h: 'Сроки', t: 'Часть корпусов уже введена, поэтапный ввод продолжается до III кв. 2027 года.', icon: <Calendar size={18} /> },
-                { h: 'Конструктив', t: 'Монолит‑кирпич, панорамное остекление, энергоэффективные решения.', icon: <CircuitBoard size={18} /> },
-                { h: 'Правовой статус', t: 'ДДУ по 214‑ФЗ, расчёты через эскроу‑счета.', icon: <ShieldCheck size={18} /> },
-                { h: 'Инфраструктура', t: 'Крытый и открытый бассейны, SPA‑центр, ресторан, спорт‑ и детские зоны, террасы.', icon: <Hammer size={18} /> },
+                { h: 'Конструктив', t: 'Монолит-кирпич, панорамное остекление, энергоэффективные решения.', icon: <CircuitBoard size={18} /> },
+                { h: 'Правовой статус', t: 'ДДУ по 214-ФЗ, расчёты через эскроу-счета.', icon: <ShieldCheck size={18} /> },
+                { h: 'Инфраструктура', t: 'Крытый и открытый бассейны, SPA-центр, ресторан, спорт- и детские зоны, террасы.', icon: <Hammer size={18} /> },
               ].map((c, i) => (
                 <div key={i} className="p-5 rounded-2xl border flex items-start gap-3" style={{ borderColor: '#C7F0DB', backgroundColor: '#FFFFFF' }}>
                   <IconWrap>{c.icon}</IconWrap>
@@ -323,7 +325,7 @@ export default function App() {
               <li><Building2 size={14} className="inline mr-2" /> Этажность до 17</li>
               <li><ParkingSquare size={14} className="inline mr-2" /> Парковки: наземные и многоуровневые</li>
             </ul>
-            <a href="#cta" className="mt-5 inline-block w-full text-center px-4 py-2 rounded-xl hover:shadow-md" style={{ backgroundColor: '#10B981', color: '#F7FFFB' }}>Запросить подборку</a>
+            <a href="#cta" className="mt-5 inline-block wлfull text-center px-4 py-2 rounded-xl hover:shadow-md" style={{ backgroundColor: '#10B981', color: '#F7FFFB' }}>Запросить подборку</a>
           </aside>
         </div>
       </section>
@@ -336,9 +338,9 @@ export default function App() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             {[
-              { t: "Оздоровление", points: [[Bath, "SPA‑центр с крытым бассейном"], [Waves, "Открытый бассейн + детская аквазона"], [Sun, "Террасы и зоны релакса"]] },
-              { t: "Семьям", points: [[Baby, "Детский сад (заявлен) и площадки"], [School, "Йога‑центр, верёвочный парк"], [Trees, "Озеленённые дворы без машин"]] },
-              { t: "Сервис", points: [[Store, "Ресторан и lounge‑пространства"], [Handshake, "Холлы и ресепшен"], [ParkingSquare, "Паркинги и гостевые места"]] }
+              { t: "Оздоровление", points: [[Bath, "SPA-центр с крытым бассейном"], [Waves, "Открытый бассейн + детская аквазона"], [Sun, "Террасы и зоны релакса"]] },
+              { t: "Семьям", points: [[Baby, "Детский сад (заявлен) и площадки"], [School, "Йога-центр, верёвочный парк"], [Trees, "Озеленённые дворы без машин"]] },
+              { t: "Сервис", points: [[Store, "Ресторан и lounge-пространства"], [Handshake, "Холлы и ресепшен"], [ParkingSquare, "Паркинги и гостевые места"]] }
             ].map((b, i) => (
               <div key={i} className="p-6 rounded-2xl border" style={{ backgroundColor: '#FFFFFF', borderColor: '#C7F0DB' }}>
                 <div className="font-semibold" style={{ color: '#052E2B' }}>{b.t}</div>
@@ -358,20 +360,20 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-2" style={{ fontFamily: 'Prata, serif' }}><Ruler size={22} /> Планировочные решения</h2>
           <p className="mt-3" style={{ color: '#355E57' }}>
-            Студии, 1‑ и 2‑комнатные квартиры, а также видовые варианты с террасами. Актуальные планировки и цены пришлём в PDF‑подборке.
+            Студии, 1- и 2-комнатные квартиры, а также видовые варианты с террасами. Актуальные планировки и цены пришлём в PDF-подборке.
           </p>
           <div className="mt-6 grid md:grid-cols-3 gap-4">
             {[
               { t: "Студии", d: "Компактные метражи, удобная эргономика", icon: <Home size={18} /> },
-              { t: "1‑комнатные", d: "Кухни‑гостиные, балконы/террасы", icon: <Home size={18} /> },
-              { t: "2‑комнатные", d: "Семейные сценарии и видовые этажи", icon: <Home size={18} /> },
+              { t: "1-комнатные", d: "Кухни-гостиные, балконы/террасы", icon: <Home size={18} /> },
+              { t: "2-комнатные", d: "Семейные сценарии и видовые этажи", icon: <Home size={18} /> },
             ].map((c, i) => (
               <div key={i} className="p-5 rounded-2xl border flex items-start gap-3" style={{ backgroundColor: '#FFFFFF', borderColor: '#C7F0DB' }}>
                 <IconWrap>{c.icon}</IconWrap>
                 <div>
                   <div className="font-semibold" style={{ color: '#052E2B' }}>{c.t}</div>
                   <div className="text-sm mt-1" style={{ color: '#355E57' }}>{c.d}</div>
-                  <a href="#cta" className="mt-3 inline-block text-sm hover:underline" style={{ color: '#0B9E74' }}>Запросить PDF‑подборку планировок</a>
+                  <a href="#cta" className="mt-3 inline-block text-sm hover:underline" style={{ color: '#0B9E74' }}>Запросить PDF-подборку планировок</a>
                 </div>
               </div>
             ))}
@@ -389,7 +391,7 @@ export default function App() {
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-3 text-sm">
               {[{ t: "Прогулочные и видовые маршруты", icon: <Bike size={16} /> }, { t: "Курортная инфраструктура поблизости", icon: <Store size={16} /> }, { t: "Медицинские и бытовые сервисы в радиусе поездки", icon: <HeartHandshake size={16} /> }, { t: "Озеленённые дворы и зоны отдыха", icon: <Trees size={16} /> }].map((i, idx) => (
-                <li key={idx} className="p-3 rounded-xl border flex items-center gap-2" style={{ borderColor: '#C7F0DB', backgroundColor: '#FFFFFF', color: '#052E2B' }}>
+                <li key={idx} className="p-3 rounded-xl border flex items-center gap-2" style={{ borderColor: '#Cш7F0DB', backgroundColor: '#FFFFFF', color: '#052E2B' }}>
                   {i.icon} {i.t}
                 </li>
               ))}
@@ -410,7 +412,7 @@ export default function App() {
               { t: "1 очередь", d: "сдана (по данным маркетплейсов) — ориентир 1 кв. 2023", icon: <FileText size={18} /> },
               { t: "2 очередь", d: "ожидание ввода — ориентир 4 кв. 2024", icon: <FileText size={18} /> },
               { t: "Дальнейшие этапы", d: "поэтапный ввод до III кв. 2027", icon: <FileText size={18} /> },
-              { t: "Формат сделки", d: "ДДУ по 214‑ФЗ, эскроу‑счета", icon: <ShieldCheck size={18} /> },
+              { t: "Формат сделки", d: "ДДУ по 214-ФЗ, эскроу-счета", icon: <ShieldCheck size={18} /> },
             ].map((s, i) => (
               <div key={i} className="p-5 rounded-2xl border flex items-start gap-3" style={{ backgroundColor: '#FFFFFF', borderColor: '#C7F0DB' }}>
                 <IconWrap>{s.icon}</IconWrap>
@@ -432,12 +434,12 @@ export default function App() {
             {[
               { q: "Где расположен комплекс?", a: "Республика Крым, Алушта, пос. Семидворье, пер. Пограничный, 6." },
               { q: "Насколько близко море?", a: "По прямой порядка 250 метров, пешком примерно 800 метров." },
-              { q: "Какая этажность и конструктив?", a: "Монолит‑кирпич, заявлена этажность до 17." },
-              { q: "Что входит в инфраструктуру?", a: "Крытый/открытый бассейны, SPA‑центр, ресторан, спорт‑ и детские зоны, озеленённые дворы, террасы." },
-              { q: "Какой правовой формат?", a: "Заключение ДДУ по 214‑ФЗ с расчётами через эскроу‑счета." },
+              { q: "Какая этажность и конструктив?", a: "Монолит-кирпич, заявлена этажность до 17." },
+              { q: "Что входит в инфраструктуру?", a: "Крытый/открытый бассейны, SPA-центр, ресторан, спорт- и детские зоны, озеленённые дворы, террасы." },
+              { q: "Какой правовой формат?", a: "Заключение ДДУ по 214-ФЗ с расчётами через эскроу-счета." },
               { q: "Есть ли паркинг?", a: "Да, предусмотрены наземные и многоуровневые парковки." }
             ].map((i, idx) => (
-              <details key={idx} className="p-5 rounded-2xl border bg-white" style={{ borderColor: '#C7F0DB' }}>
+              <details key={idx} className="п-5 rounded-2xl border bg-white" style={{ borderColor: '#C7F0DB' }}>
                 <summary className="font-semibold cursor-pointer" style={{ color: '#052E2B' }}>{i.q}</summary>
                 <p className="mt-2 text-sm" style={{ color: '#355E57' }}>{i.a}</p>
               </details>
@@ -450,9 +452,9 @@ export default function App() {
           "mainEntity": [
             { "@type": "Question", "name": "Где расположен комплекс?", "acceptedAnswer": { "@type": "Answer", "text": "Республика Крым, Алушта, пос. Семидворье, пер. Пограничный, 6." } },
             { "@type": "Question", "name": "Насколько близко море?", "acceptedAnswer": { "@type": "Answer", "text": "По прямой порядка 250 метров, пешком примерно 800 метров." } },
-            { "@type": "Question", "name": "Какая этажность и конструктив?", "acceptedAnswer": { "@type": "Answer", "text": "Монолит‑кирпич, заявлена этажность до 17." } },
-            { "@type": "Question", "name": "Что входит в инфраструктуру?", "acceptedAnswer": { "@type": "Answer", "text": "Крытый/открытый бассейны, SPA‑центр, ресторан, спорт‑ и детские зоны, озеленённые дворы, террасы." } },
-            { "@type": "Question", "name": "Какой правовой формат?", "acceptedAnswer": { "@type": "Answer", "text": "ДДУ по 214‑ФЗ, расчёты через эскроу‑счета." } },
+            { "@type": "Question", "name": "Какая этажность и конструктив?", "acceptedAnswer": { "@type": "Answer", "text": "Монолит-кирпич, заявлена этажность до 17." } },
+            { "@type": "Question", "name": "Что входит в инфраструктуру?", "acceptedAnswer": { "@type": "Answer", "text": "Крытый/открытый бассейны, SPA-центр, ресторан, спорт- и детские зоны, озеленённые дворы, террасы." } },
+            { "@type": "Question", "name": "Какой правовой формат?", "acceptedAnswer": { "@type": "Answer", "text": "ДДУ по 214-ФЗ, расчёты через эскроу-счета." } },
             { "@type": "Question", "name": "Есть ли паркинг?", "acceptedAnswer": { "@type": "Answer", "text": "Наземные и многоуровневые парковки." } }
           ]
         }) }} />
@@ -506,7 +508,7 @@ export default function App() {
               <Home size={16} /> ЖК «Лучистое»
             </div>
             <p className="mt-2">Республика Крым, Алушта, пос. Семидворье, пер. Пограничный, 6</p>
-            <p className="mt-1">ДДУ по 214‑ФЗ, расчёты через эскроу‑счета.</p>
+            <p className="mt-1">ДДУ по 214-ФЗ, расчёты через эскроу-счета.</p>
           </div>
           <div className="md:text-right">
             <a href="/policy.html" className="underline">Политика конфиденциальности</a>
